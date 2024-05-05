@@ -1,0 +1,64 @@
+[
+    {
+        "iconUrl": "https://www.google.com/s2/favicons?domain=gomov.bio&sz=%size%",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/crstlnz/provider",
+        "fileSize": 30881,
+        "status": 1,
+        "language": "id",
+        "authors": [
+            "Hexated"
+        ],
+        "tvTypes": [
+            "AsianDrama",
+            "TvSeries",
+            "Movie"
+        ],
+        "version": 1,
+        "internalName": "Gomov",
+        "description": "Includes: DutaMovie, Ngefilm, Nodrakorid, Multiplex, Pusatfilm",
+        "url": "https://raw.githubusercontent.com/crstlnz/provider/builds/Gomov.cs3",
+        "name": "Gomov"
+    },
+    {
+        "iconUrl": "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://idlixian.com&size=16",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/crstlnz/provider",
+        "fileSize": 25181,
+        "status": 1,
+        "language": "id",
+        "authors": [
+            "Crstlnz"
+        ],
+        "tvTypes": [
+            "TvSeries",
+            "Movie",
+            "Anime",
+            "AsianDrama"
+        ],
+        "version": 2,
+        "internalName": "IdlixProvider",
+        "url": "https://raw.githubusercontent.com/crstlnz/provider/builds/IdlixProvider.cs3",
+        "name": "IdlixProvider"
+    },
+    {
+        "iconUrl": "https://www.google.com/s2/favicons?domain=45.12.2.2&sz=%size%",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/crstlnz/provider",
+        "fileSize": 23609,
+        "status": 1,
+        "language": "id",
+        "authors": [
+            "Crstlnz"
+        ],
+        "tvTypes": [
+            "AnimeMovie",
+            "Anime",
+            "OVA"
+        ],
+        "version": 2,
+        "internalName": "KuronimeProvider",
+        "url": "https://raw.githubusercontent.com/crstlnz/provider/builds/KuronimeProvider.cs3",
+        "name": "KuronimeProvider"
+    }
+]
