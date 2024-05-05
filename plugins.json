@@ -1,0 +1,104 @@
+[
+    {
+        "iconUrl": "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://animesail.com&size=64",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/crstlnz/provider",
+        "fileSize": 20618,
+        "status": 1,
+        "language": "id",
+        "authors": [
+            "Crstlnz"
+        ],
+        "tvTypes": [
+            "AnimeMovie",
+            "Anime",
+            "OVA"
+        ],
+        "version": 13,
+        "internalName": "AnimeSail",
+        "url": "https://raw.githubusercontent.com/crstlnz/provider/builds/AnimeSail.cs3",
+        "name": "AnimeSail"
+    },
+    {
+        "iconUrl": "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://tv1.anoboy.app&size=64",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/crstlnz/provider",
+        "fileSize": 15428,
+        "status": 0,
+        "language": "id",
+        "authors": [
+            "Crstlnz"
+        ],
+        "tvTypes": [
+            "AnimeMovie",
+            "Anime",
+            "OVA"
+        ],
+        "version": 3,
+        "internalName": "Anoboy",
+        "url": "https://raw.githubusercontent.com/crstlnz/provider/builds/Anoboy.cs3",
+        "name": "Anoboy"
+    },
+    {
+        "iconUrl": "https://www.google.com/s2/favicons?domain=gomov.bio&sz=%size%",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/crstlnz/provider",
+        "fileSize": 30601,
+        "status": 0,
+        "language": "id",
+        "authors": [
+            "Hexated"
+        ],
+        "tvTypes": [
+            "AsianDrama",
+            "TvSeries",
+            "Movie"
+        ],
+        "version": 2,
+        "internalName": "Gomov",
+        "description": "Includes: DutaMovie, Ngefilm, Nodrakorid, Multiplex, Pusatfilm",
+        "url": "https://raw.githubusercontent.com/crstlnz/provider/builds/Gomov.cs3",
+        "name": "Gomov"
+    },
+    {
+        "iconUrl": "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://idlixian.com&size=16",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/crstlnz/provider",
+        "fileSize": 25195,
+        "status": 0,
+        "language": "id",
+        "authors": [
+            "Crstlnz"
+        ],
+        "tvTypes": [
+            "TvSeries",
+            "Movie",
+            "Anime",
+            "AsianDrama"
+        ],
+        "version": 3,
+        "internalName": "IdlixProvider",
+        "url": "https://raw.githubusercontent.com/crstlnz/provider/builds/IdlixProvider.cs3",
+        "name": "IdlixProvider"
+    },
+    {
+        "iconUrl": "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://kuronime.biz&size=64",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/crstlnz/provider",
+        "fileSize": 24118,
+        "status": 1,
+        "language": "id",
+        "authors": [
+            "Crstlnz"
+        ],
+        "tvTypes": [
+            "AnimeMovie",
+            "Anime",
+            "OVA"
+        ],
+        "version": 3,
+        "internalName": "KuronimeProvider",
+        "url": "https://raw.githubusercontent.com/crstlnz/provider/builds/KuronimeProvider.cs3",
+        "name": "KuronimeProvider"
+    }
+]
