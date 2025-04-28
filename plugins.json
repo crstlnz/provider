@@ -2,8 +2,7 @@
     {
         "iconUrl": "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://animesail.com&size=64",
         "apiVersion": 1,
-        "repositoryUrl": "https://github.com/crsltnz/provider",
-        "fileSize": 21512,
+        "repositoryUrl": "https://github.com/crstlnz/provider",
         "status": 1,
         "language": "id",
         "authors": [
@@ -16,14 +15,13 @@
         ],
         "version": 15,
         "internalName": "AnimeSail",
-        "url": "https://raw.githubusercontent.com/crsltnz/provider/builds/AnimeSail.cs3",
+        "url": "https://raw.githubusercontent.com/crstlnz/provider/builds/AnimeSail.cs3",
         "name": "AnimeSail"
     },
     {
         "iconUrl": "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://tv1.anoboy.app&size=64",
         "apiVersion": 1,
-        "repositoryUrl": "https://github.com/crsltnz/provider",
-        "fileSize": 18428,
+        "repositoryUrl": "https://github.com/crstlnz/provider",
         "status": 0,
         "language": "id",
         "authors": [
@@ -36,14 +34,13 @@
         ],
         "version": 3,
         "internalName": "Anoboy",
-        "url": "https://raw.githubusercontent.com/crsltnz/provider/builds/Anoboy.cs3",
+        "url": "https://raw.githubusercontent.com/crstlnz/provider/builds/Anoboy.cs3",
         "name": "Anoboy"
     },
     {
         "iconUrl": "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://tv4.dramaserial.id/&size=64",
         "apiVersion": 1,
-        "repositoryUrl": "https://github.com/crsltnz/provider",
-        "fileSize": 57901,
+        "repositoryUrl": "https://github.com/crstlnz/provider",
         "status": 1,
         "language": "id",
         "authors": [
@@ -59,14 +56,13 @@
         ],
         "version": 2,
         "internalName": "DramaSerial",
-        "url": "https://raw.githubusercontent.com/crsltnz/provider/builds/DramaSerial.cs3",
+        "url": "https://raw.githubusercontent.com/crstlnz/provider/builds/DramaSerial.cs3",
         "name": "DramaSerial"
     },
     {
         "iconUrl": "https://www.google.com/s2/favicons?domain=gomov.bio&sz=%size%",
         "apiVersion": 1,
-        "repositoryUrl": "https://github.com/crsltnz/provider",
-        "fileSize": 30602,
+        "repositoryUrl": "https://github.com/crstlnz/provider",
         "status": 0,
         "language": "id",
         "authors": [
@@ -80,14 +76,13 @@
         "version": 2,
         "internalName": "Gomov",
         "description": "Includes: DutaMovie, Ngefilm, Nodrakorid, Multiplex, Pusatfilm",
-        "url": "https://raw.githubusercontent.com/crsltnz/provider/builds/Gomov.cs3",
+        "url": "https://raw.githubusercontent.com/crstlnz/provider/builds/Gomov.cs3",
         "name": "Gomov"
     },
     {
         "iconUrl": "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://idlixian.com&size=16",
         "apiVersion": 1,
-        "repositoryUrl": "https://github.com/crsltnz/provider",
-        "fileSize": 25197,
+        "repositoryUrl": "https://github.com/crstlnz/provider",
         "status": 0,
         "language": "id",
         "authors": [
@@ -101,14 +96,13 @@
         ],
         "version": 3,
         "internalName": "IdlixProvider",
-        "url": "https://raw.githubusercontent.com/crsltnz/provider/builds/IdlixProvider.cs3",
+        "url": "https://raw.githubusercontent.com/crstlnz/provider/builds/IdlixProvider.cs3",
         "name": "IdlixProvider"
     },
     {
         "iconUrl": "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://kuronime.biz&size=64",
         "apiVersion": 1,
-        "repositoryUrl": "https://github.com/crsltnz/provider",
-        "fileSize": 25992,
+        "repositoryUrl": "https://github.com/crstlnz/provider",
         "status": 1,
         "language": "id",
         "authors": [
@@ -121,14 +115,13 @@
         ],
         "version": 5,
         "internalName": "KuronimeProvider",
-        "url": "https://raw.githubusercontent.com/crsltnz/provider/builds/KuronimeProvider.cs3",
+        "url": "https://raw.githubusercontent.com/crstlnz/provider/builds/KuronimeProvider.cs3",
         "name": "KuronimeProvider"
     },
     {
         "iconUrl": "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://moviebox.ng/&size=64",
         "apiVersion": 1,
-        "repositoryUrl": "https://github.com/crsltnz/provider",
-        "fileSize": 61944,
+        "repositoryUrl": "https://github.com/crstlnz/provider",
         "status": 1,
         "language": "id",
         "authors": [
@@ -144,7 +137,7 @@
         ],
         "version": 16,
         "internalName": "MovieBox",
-        "url": "https://raw.githubusercontent.com/crsltnz/provider/builds/MovieBox.cs3",
+        "url": "https://raw.githubusercontent.com/crstlnz/provider/builds/MovieBox.cs3",
         "name": "MovieBox"
     }
 ]
