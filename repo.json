@@ -1,0 +1,8 @@
+{
+    "name": "Crstlnz repository",
+    "description": "Custom repository.",
+    "manifestVersion": 1,
+    "pluginLists": [
+      "https://raw.githubusercontent.com/crstlnz/provider/builds/plugins.json"
+    ]
+}
