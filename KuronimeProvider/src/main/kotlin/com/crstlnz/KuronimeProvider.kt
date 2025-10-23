@@ -23,7 +23,7 @@ import java.net.URI
 import java.util.ArrayList
 
 class KuronimeProvider : MainAPI() {
-    override var mainUrl = "https://kuronime.biz"
+    override var mainUrl = "https://kuronime.moe"
     private var animekuUrl = "https://animeku.org"
     override var name = "Kuronime+"
     override val hasQuickSearch = true
