@@ -79,7 +79,7 @@ subprojects {
 
         val implementation by configurations
         val apk by configurations
-        apk("com.lagradost:cloudstream3:pre-release")
+        apk("com.lagradost:cloudstream3:latest")
         // If the task is specifically to compile the app then use the stubs, otherwise us the library.
         if (useApk) {
             // Stubs for all Cloudstream classes
@@ -88,7 +88,7 @@ subprojects {
         }
 
         implementation(kotlin("stdlib")) // adds standard kotlin features, like listOf, mapOf etc
-        implementation("com.github.Blatzar:NiceHttp:0.4.11") // http library
+        implementation("com.github.Blatzar:NiceHttp:0.4.13") // http library
         implementation("org.jsoup:jsoup:1.17.2") // html parser
         implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.16.1")
         implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
