@@ -5,6 +5,7 @@ import com.lagradost.cloudstream3.*
 import com.lagradost.cloudstream3.LoadResponse.Companion.addAniListId
 import com.lagradost.cloudstream3.LoadResponse.Companion.addMalId
 import com.lagradost.cloudstream3.LoadResponse.Companion.addTrailer
+import com.lagradost.cloudstream3.amap
 import com.lagradost.cloudstream3.extractors.helper.AesHelper
 import com.lagradost.cloudstream3.mvvm.logError
 import com.lagradost.cloudstream3.utils.AppUtils.tryParseJson
@@ -228,7 +229,7 @@ class KuronimeProvider : MainAPI() {
                 "AES/CBC/NoPadding"
             )
             tryParseJson<Mirrors>(decrypt)?.embed?.map { embed ->
-                embed.value.apmap {
+                embed.value.amap {
                     loadFixedExtractor(
                         it.value,
                         embed.key.removePrefix("v"),

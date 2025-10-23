@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import com.lagradost.cloudstream3.*
 import com.lagradost.cloudstream3.LoadResponse.Companion.addActors
 import com.lagradost.cloudstream3.LoadResponse.Companion.addTrailer
+import com.lagradost.cloudstream3.amap
 import com.lagradost.cloudstream3.extractors.helper.AesHelper
 import com.lagradost.cloudstream3.network.CloudflareKiller
 import com.lagradost.cloudstream3.utils.*
@@ -129,8 +130,8 @@ class IdlixProvider : MainAPI() {
         ) TvType.TvSeries else TvType.Movie
         val description = document.select("div.wp-content > p").text().trim()
         val trailer = document.selectFirst("div.embed iframe")?.attr("src")
-        val rating =
-            document.selectFirst("span.dt_rating_vgs")?.text()?.toRatingInt()
+        val rating = Score.from(document.selectFirst("span.dt_rating_vgs")?.text(), 10)
+
         val actors = document.select("div.persons > div[itemprop=actor]").map {
             Actor(it.select("meta[itemprop=name]").attr("content"), it.select("img").attr("src"))
         }
@@ -166,7 +167,7 @@ class IdlixProvider : MainAPI() {
                 this.year = year
                 this.plot = description
                 this.tags = tags
-                this.rating = rating
+                this.score = rating
                 addActors(actors)
                 this.recommendations = recommendations
                 addTrailer(trailer)
@@ -177,7 +178,7 @@ class IdlixProvider : MainAPI() {
                 this.year = year
                 this.plot = description
                 this.tags = tags
-                this.rating = rating
+                this.score = rating
                 addActors(actors)
                 this.recommendations = recommendations
                 addTrailer(trailer)
@@ -194,24 +195,35 @@ class IdlixProvider : MainAPI() {
 
         val document = app.get(data).document
         document.select("ul#playeroptionsul > li").map {
-            Triple(
-                it.attr("data-post"),
-                it.attr("data-nume"),
-                it.attr("data-type")
-            )
-        }.apmap { (id, nume, type) ->
+                Triple(
+                    it.attr("data-post"),
+                    it.attr("data-nume"),
+                    it.attr("data-type")
+                )
+            }.amap { (id, nume, type) ->
             val json = app.post(
-                url = "$directUrl/wp-admin/admin-ajax.php", data = mapOf(
+                url = "$directUrl/wp-admin/admin-ajax.php",
+                data = mapOf(
                     "action" to "doo_player_ajax", "post" to id, "nume" to nume, "type" to type
-                ), referer = data, headers = mapOf("Accept" to "*/*", "X-Requested-With" to "XMLHttpRequest")
-            ).parsedSafe<ResponseHash>() ?: return@apmap
+                ),
+                referer = data,
+                headers = mapOf("Accept" to "*/*", "X-Requested-With" to "XMLHttpRequest")
+            ).parsedSafe<ResponseHash>() ?: return@amap
             val metrix = AppUtils.parseJson<AesData>(json.embed_url).m
             val password = createKey(json.key, metrix)
-            val decrypted = AesHelper.cryptoAESHandler(json.embed_url, password.toByteArray(), false)?.fixBloat() ?: return@apmap
+            val decrypted =
+                AesHelper.cryptoAESHandler(json.embed_url, password.toByteArray(), false)
+                    ?.fixBloat() ?: return@amap
 
             when {
-                !decrypted.contains("youtube") -> getUrl(decrypted, "$directUrl/", subtitleCallback, callback)
-                else -> return@apmap
+                !decrypted.contains("youtube") -> getUrl(
+                    decrypted,
+                    "$directUrl/",
+                    subtitleCallback,
+                    callback
+                )
+
+                else -> return@amap
             }
         }
 

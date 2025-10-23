@@ -28,6 +28,7 @@ import com.lagradost.cloudstream3.LoadResponse.Companion.addAniListId
 import com.lagradost.cloudstream3.LoadResponse.Companion.addMalId
 import com.lagradost.cloudstream3.MainAPI
 import com.lagradost.cloudstream3.MainPageRequest
+import com.lagradost.cloudstream3.Score
 import com.lagradost.cloudstream3.SearchResponse
 import com.lagradost.cloudstream3.SeasonData
 import com.lagradost.cloudstream3.ShowStatus
@@ -222,9 +223,8 @@ class DramaSerial : MainAPI() {
             url,
             type
         ) {
-            rating =
-                data.selectFirst(".gmr-rating-content [itemprop='ratingValue']")?.text()?.trim()
-                    ?.replace(",", ".")?.toFloat()?.toInt()
+            score = Score.from(data.selectFirst(".gmr-rating-content [itemprop='ratingValue']")?.text()?.trim()
+                ?.replace(",", ".")?.toFloat()?.toInt(), 10)
             backgroundPosterUrl = img
             posterUrl = img
             this.year = year

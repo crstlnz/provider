@@ -25,6 +25,7 @@ import com.lagradost.cloudstream3.LoadResponse.Companion.addAniListId
 import com.lagradost.cloudstream3.LoadResponse.Companion.addMalId
 import com.lagradost.cloudstream3.MainAPI
 import com.lagradost.cloudstream3.MainPageRequest
+import com.lagradost.cloudstream3.Score
 import com.lagradost.cloudstream3.SearchResponse
 import com.lagradost.cloudstream3.SeasonData
 import com.lagradost.cloudstream3.ShowStatus
@@ -308,7 +309,7 @@ class MovieBox : MainAPI() {
             url,
             type
         ) {
-            rating = ((data.subject?.imdbRatingValue?.toFloatOrNull() ?: (0f * 10f))).toInt()
+            score = Score.from(((data.subject?.imdbRatingValue?.toFloatOrNull() ?: (0f * 10f))),10)
             backgroundPosterUrl = tracker?.cover
             posterUrl = tracker?.image ?: data.metadata?.image
             this.year = year

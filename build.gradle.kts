@@ -79,7 +79,7 @@ subprojects {
 
         val implementation by configurations
         val apk by configurations
-        apk("com.lagradost:cloudstream3:latest")
+        apk("com.lagradost:cloudstream3:pre-release")
         // If the task is specifically to compile the app then use the stubs, otherwise us the library.
         if (useApk) {
             // Stubs for all Cloudstream classes
