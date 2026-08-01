@@ -2,5 +2,13 @@ package com.crstlnz
 
 suspend fun main() {
     val api = KuronimeProvider()
-    println(api.search("Sono bisque"))
+    val data = api.search("Sono bisque")
+    println(data)
+
+    val detail = api.load(data?.first()?.url ?: "")
+    println(detail)
+
+    val links = api.loadLinks(detail.episodes.values.first().first().data, false, { data ->
+        println(data)
+    }, { d -> println(d) })
 }

@@ -24,7 +24,7 @@ import java.net.URI
 import java.util.ArrayList
 
 class KuronimeProvider : MainAPI() {
-    override var mainUrl = "https://kuronime.moe"
+    override var mainUrl = "https://kuronime.sbs"
     private var animekuUrl = "https://animeku.org"
     override var name = "Kuronime+"
     override val hasQuickSearch = true
@@ -126,7 +126,7 @@ class KuronimeProvider : MainAPI() {
         }
     }
 
-    override suspend fun load(url: String): LoadResponse {
+    override suspend fun load(url: String): AnimeLoadResponse {
         val document = app.get(url).document
 
         val title = document.selectFirst(".entry-title")?.text().toString().trim()
@@ -194,9 +194,23 @@ class KuronimeProvider : MainAPI() {
         callback: (ExtractorLink) -> Unit
     ): Boolean {
         val document = app.get(data).document
-        val scriptData =
-            document.selectFirst("div#content script:containsData(is_singular)")?.data() ?: ""
-        val id = extractEncodedString(scriptData)
+        print("PALAK DIE : $data");
+        val encodedVariablePattern = Regex(
+            """\bvar\s+_0x[0-9a-fA-F]+\s*=\s*["'][A-Za-z0-9+/=]{100,}["']\s*;?"""
+        )
+        val singularPattern = Regex(
+            """\bvar\s+is_singular\s*=\s*true\s*;?"""
+        )
+        val script = document.select("script").firstOrNull { element ->
+            val content = element.data().ifBlank { element.html() }
+            print("DATA SCRIPT : $content")
+
+            singularPattern.containsMatchIn(content) &&
+                    encodedVariablePattern.containsMatchIn(content)
+        }?.data() ?: ""
+        println("data : $script")
+        print("WEW")
+        val id = extractEncodedString(script)
             ?: throw ErrorLoadingException("No id found")
         val mediaType = "application/json; charset=utf-8".toMediaType()
         val jsonBody = "{\"id\":\"${id}\"}"
