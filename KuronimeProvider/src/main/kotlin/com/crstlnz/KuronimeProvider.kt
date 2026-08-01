@@ -96,7 +96,7 @@ class KuronimeProvider : MainAPI() {
         val href = getProperAnimeLink(fixUrlNull(this.selectFirst("a")?.attr("href")).toString())
         val title = this.select(".bsuxtt, .tt > h4").text().trim()
         val posterUrl = fixUrlNull(
-            this.selectFirst("div.view,div.bt")?.nextElementSibling()?.select("img")
+            this.selectFirst("\"\"img[itemprop=\"image\"]\"\"")?.nextElementSibling()?.select("img")
                 ?.attr("data-src")
         )
         val epNum = this.select(".ep").text().replace(Regex("\\D"), "").trim().toIntOrNull()
@@ -130,7 +130,7 @@ class KuronimeProvider : MainAPI() {
         val document = app.get(url).document
 
         val title = document.selectFirst(".entry-title")?.text().toString().trim()
-        val poster = document.selectFirst("div.l[itemprop=image] > img")?.attr("data-src")
+        val poster = document.selectFirst("div[itemprop=image] > img")?.attr("data-src")
         val tags = document.select(".infodetail > ul > li:nth-child(2) > a").map { it.text() }
         val type = getType(
             document.selectFirst(".infodetail > ul > li:nth-child(7)")?.ownText()?.removePrefix(":")
@@ -158,7 +158,6 @@ class KuronimeProvider : MainAPI() {
         }.reversed()
 
         val tracker = APIHolder.getTracker(listOf(title), TrackerType.getTypes(type), year, true)
-
         return newAnimeLoadResponse(title, url, type) {
             engName = title
             posterUrl = tracker?.image ?: poster
@@ -194,7 +193,6 @@ class KuronimeProvider : MainAPI() {
         callback: (ExtractorLink) -> Unit
     ): Boolean {
         val document = app.get(data).document
-        print("PALAK DIE : $data");
         val encodedVariablePattern = Regex(
             """\bvar\s+_0x[0-9a-fA-F]+\s*=\s*["'][A-Za-z0-9+/=]{100,}["']\s*;?"""
         )
@@ -203,13 +201,9 @@ class KuronimeProvider : MainAPI() {
         )
         val script = document.select("script").firstOrNull { element ->
             val content = element.data().ifBlank { element.html() }
-            print("DATA SCRIPT : $content")
-
             singularPattern.containsMatchIn(content) &&
                     encodedVariablePattern.containsMatchIn(content)
         }?.data() ?: ""
-        println("data : $script")
-        print("WEW")
         val id = extractEncodedString(script)
             ?: throw ErrorLoadingException("No id found")
         val mediaType = "application/json; charset=utf-8".toMediaType()
