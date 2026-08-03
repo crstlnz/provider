@@ -93,12 +93,14 @@ class KuronimeProvider : MainAPI() {
     }
 
     private fun Element.toSearchResult(): AnimeSearchResponse {
+        println(this.html())
         val href = getProperAnimeLink(fixUrlNull(this.selectFirst("a")?.attr("href")).toString())
         val title = this.select(".bsuxtt, .tt > h4").text().trim()
+
+        val posterEl = this.selectFirst("img[itemprop]")
         val posterUrl = fixUrlNull(
-            this.selectFirst("\"\"img[itemprop=\"image\"]\"\"")?.nextElementSibling()?.select("img")
-                ?.attr("data-src")
-        )
+            posterEl?.attr("src") ?: posterEl?.attr("data-src")
+        )?.substringBefore("?resize=")
         val epNum = this.select(".ep").text().replace(Regex("\\D"), "").trim().toIntOrNull()
         val tvType = getType(this.selectFirst(".bt > span")?.text().toString())
         return newAnimeSearchResponse(title, href, tvType) {
@@ -201,11 +203,11 @@ class KuronimeProvider : MainAPI() {
         )
         val script = document.select("script").firstOrNull { element ->
             val content = element.data().ifBlank { element.html() }
-            singularPattern.containsMatchIn(content) &&
-                    encodedVariablePattern.containsMatchIn(content)
+            singularPattern.containsMatchIn(content) && encodedVariablePattern.containsMatchIn(
+                content
+            )
         }?.data() ?: ""
-        val id = extractEncodedString(script)
-            ?: throw ErrorLoadingException("No id found")
+        val id = extractEncodedString(script) ?: throw ErrorLoadingException("No id found")
         val mediaType = "application/json; charset=utf-8".toMediaType()
         val jsonBody = "{\"id\":\"${id}\"}"
         val body = jsonBody.toRequestBody(mediaType)
